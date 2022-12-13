@@ -1,5 +1,4 @@
 #include <sourcemod>
-#include <sdktools>
 
 #include "afkd/math"
 #include "afkd/use-case"
