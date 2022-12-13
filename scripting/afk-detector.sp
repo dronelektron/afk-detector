@@ -19,6 +19,7 @@ public Plugin myinfo = {
 public void OnPluginStart() {
     Api_Create();
     Variable_Create();
+    AutoExecConfig(true, "afk-detector");
 }
 
 public void OnPluginEnd() {
