@@ -16,6 +16,12 @@ public Plugin myinfo = {
     url = "https://github.com/dronelektron/afk-detector"
 };
 
+public APLRes AskPluginLoad2(Handle plugin, bool late, char[] error, int errorMax) {
+    RegPluginLibrary("afk-detector");
+
+    return APLRes_Success;
+}
+
 public void OnPluginStart() {
     Api_Create();
     Variable_Create();
