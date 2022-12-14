@@ -1,4 +1,8 @@
 void UseCase_CheckPlayer(int client, int buttons, const int mouse[MOUSE_SIZE]) {
+    if (IsClientSourceTV(client) || IsFakeClient(client)) {
+        return;
+    }
+
     bool hasPressedButtons = buttons != NO_BUTTONS;
     bool hasMovedMouseX = mouse[MOUSE_X] != NO_MOUSE_DIRECTION;
     bool hasMovedMouseY = mouse[MOUSE_Y] != NO_MOUSE_DIRECTION;
