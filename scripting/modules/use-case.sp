@@ -14,9 +14,9 @@ void UseCase_CheckPlayer(int client, int buttons, const int mouse[MOUSE_SIZE]) {
         float currentTime = GetGameTime();
         float lastActivityTime = Client_GetLastActivityTime(client);
         float checkInterval = Variable_CheckInterval();
-        bool noActivityLongTime = currentTime > lastActivityTime + checkInterval;
+        bool noActivityAfterInterval = currentTime > lastActivityTime + checkInterval;
 
-        if (noActivityLongTime) {
+        if (noActivityAfterInterval) {
             UseCase_MarkPlayerAsInactive(client);
         }
     }
