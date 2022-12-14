@@ -43,7 +43,7 @@ forward void OnClientInactive(int client);
 public Plugin myinfo = {
     name = "AFK notifier",
     author = "Dron-elektron",
-    description = "Prints to the player that he is AFK or not",
+    description = "Prints a message to the player that he is AFK or not",
     version = "",
     url = ""
 };
