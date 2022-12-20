@@ -25,7 +25,7 @@ public APLRes AskPluginLoad2(Handle plugin, bool late, char[] error, int errorMa
 
 public void OnPluginStart() {
     Api_Create();
-    Command_AddVoiceListeners();
+    Command_AddListeners();
     Variable_Create();
     AutoExecConfig(true, "afk-detector");
 }

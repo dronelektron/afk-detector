@@ -39,13 +39,36 @@ static char g_voiceCommands[][] = {
     "voice_coverflanks"
 };
 
-void Command_AddVoiceListeners() {
+static char g_classCommands[][] = {
+    // Allies
+    "cls_garand",
+    "cls_tommy",
+    "cls_bar",
+    "cls_spring",
+    "cls_30cal",
+    "cls_bazooka",
+    // Axis
+    "cls_k98",
+    "cls_mp40",
+    "cls_mp44",
+    "cls_k98s",
+    "cls_mg42",
+    "cls_pschreck"
+};
+
+void Command_AddListeners() {
     for (int i = 0; i < sizeof(g_voiceCommands); i++) {
-        AddCommandListener(CommandListener_Voice, g_voiceCommands[i]);
+        AddCommandListener(CommandListener_Common, g_voiceCommands[i]);
     }
+
+    for (int i = 0; i < sizeof(g_classCommands); i++) {
+        AddCommandListener(CommandListener_Common, g_classCommands[i]);
+    }
+
+    AddCommandListener(CommandListener_Common, "jointeam");
 }
 
-public Action CommandListener_Voice(int client, const char[] command, int argc) {
+public Action CommandListener_Common(int client, const char[] command, int argc) {
     UseCase_MarkPlayerAsActive(client);
 
     return Plugin_Continue;
