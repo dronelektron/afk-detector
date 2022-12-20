@@ -5,6 +5,7 @@
 
 #include "modules/api.sp"
 #include "modules/client.sp"
+#include "modules/console-command.sp"
 #include "modules/console-variable.sp"
 #include "modules/use-case.sp"
 
@@ -12,7 +13,7 @@ public Plugin myinfo = {
     name = "AFK detector",
     author = "Dron-elektron",
     description = "Allows you to detect inactive players",
-    version = "1.0.2",
+    version = "1.0.3",
     url = "https://github.com/dronelektron/afk-detector"
 };
 
@@ -24,6 +25,7 @@ public APLRes AskPluginLoad2(Handle plugin, bool late, char[] error, int errorMa
 
 public void OnPluginStart() {
     Api_Create();
+    Command_AddListeners();
     Variable_Create();
     AutoExecConfig(true, "afk-detector");
 }

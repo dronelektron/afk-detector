@@ -5,6 +5,9 @@ Allows you to detect inactive players. Active players must do the following:
 * Press buttons
 * Move mouse
 * Write messages to chat
+* Use voice commands
+* Change team
+* Change class
 
 ### Supported Games
 
