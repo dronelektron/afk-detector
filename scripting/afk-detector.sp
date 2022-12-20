@@ -5,6 +5,7 @@
 
 #include "modules/api.sp"
 #include "modules/client.sp"
+#include "modules/console-command.sp"
 #include "modules/console-variable.sp"
 #include "modules/use-case.sp"
 
@@ -24,6 +25,7 @@ public APLRes AskPluginLoad2(Handle plugin, bool late, char[] error, int errorMa
 
 public void OnPluginStart() {
     Api_Create();
+    Command_AddVoiceListeners();
     Variable_Create();
     AutoExecConfig(true, "afk-detector");
 }
