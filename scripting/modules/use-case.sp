@@ -23,6 +23,10 @@ void UseCase_CheckPlayer(int client, int buttons, const int mouse[MOUSE_SIZE]) {
 }
 
 void UseCase_MarkPlayerAsActive(int client) {
+    if (client == CLIENT_CONSOLE) {
+        return;
+    }
+
     Client_UpdateLastActivityTime(client);
 
     if (Client_IsActive(client)) {
