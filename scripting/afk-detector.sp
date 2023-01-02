@@ -13,7 +13,7 @@ public Plugin myinfo = {
     name = "AFK detector",
     author = "Dron-elektron",
     description = "Allows you to detect inactive players",
-    version = "1.0.3",
+    version = "1.0.4",
     url = "https://github.com/dronelektron/afk-detector"
 };
 
