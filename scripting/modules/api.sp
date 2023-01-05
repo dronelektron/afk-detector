@@ -22,3 +22,9 @@ void Api_OnClientInactive(int client) {
     Call_PushCell(client);
     Call_Finish();
 }
+
+any Api_IsClientActive(Handle plugin, int numParams) {
+    int client = GetNativeCell(1);
+
+    return Client_IsActive(client);
+}

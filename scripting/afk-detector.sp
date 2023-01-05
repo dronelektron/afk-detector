@@ -19,6 +19,7 @@ public Plugin myinfo = {
 
 public APLRes AskPluginLoad2(Handle plugin, bool late, char[] error, int errorMax) {
     RegPluginLibrary("afk-detector");
+    CreateNative("AfkDetector_IsClientActive", Api_IsClientActive);
 
     return APLRes_Success;
 }
