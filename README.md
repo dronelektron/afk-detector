@@ -36,6 +36,12 @@ Called when the player is AFK
 forward void OnClientInactive(int client);
 ```
 
+Checks if the client is active
+
+```
+native bool AfkDetector_IsClientActive(int client);
+```
+
 ### Usage example
 
 ```
