@@ -13,12 +13,13 @@ public Plugin myinfo = {
     name = "AFK detector",
     author = "Dron-elektron",
     description = "Allows you to detect inactive players",
-    version = "1.0.4",
+    version = "1.1.0",
     url = "https://github.com/dronelektron/afk-detector"
 };
 
 public APLRes AskPluginLoad2(Handle plugin, bool late, char[] error, int errorMax) {
     RegPluginLibrary("afk-detector");
+    CreateNative("AfkDetector_IsClientActive", Api_IsClientActive);
 
     return APLRes_Success;
 }
