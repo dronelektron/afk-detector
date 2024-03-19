@@ -7,11 +7,21 @@ void UseCase_CheckPlayers() {
 }
 
 void UseCase_CheckPlayer(int client) {
-    bool buttonsChanged = Client_AreButtonsChanged(client);
-    bool anglesChanged = Client_AreAnglesChanged(client);
-    bool positionChanged = Client_IsPositionChanged(client);
+    int actionsAmount = 0;
 
-    if (buttonsChanged || anglesChanged || positionChanged) {
+    if (Client_AreButtonsChanged(client)) {
+        actionsAmount++;
+    }
+
+    if (Client_AreAnglesChanged(client)) {
+        actionsAmount++;
+    }
+
+    if (Client_IsPositionChanged(client)) {
+        actionsAmount++;
+    }
+
+    if (actionsAmount > 1) {
         UseCase_MarkPlayerAsActive(client);
     } else {
         UseCase_IncrementInactivitySeconds(client);
