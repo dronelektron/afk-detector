@@ -1,7 +1,7 @@
-#if defined _afkd_use_case_included
+#if defined _afk_detector_use_case_included
  #endinput
 #endif
-#define _afkd_use_case_included
+#define _afk_detector_use_case_included
 
 #define CLIENT_CONSOLE 0
 

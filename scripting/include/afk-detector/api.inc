@@ -1,7 +1,7 @@
-#if defined _afkd_api_included
+#if defined _afk_detector_api_included
  #endinput
 #endif
-#define _afkd_api_included
+#define _afk_detector_api_included
 
 #define LIBRARY_AFK_DETECTOR "afk-detector"
 
