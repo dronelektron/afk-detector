@@ -33,7 +33,7 @@ public void OnPluginStart() {
     Forward_Create();
     Command_AddListeners();
     Variable_Create();
-    AutoExecConfig(AUTO_CREATE_YES, LIBRARY_AFK_DETECTOR);
+    AutoExecConfig(AUTO_CREATE_YES, "afk-detector");
 }
 
 public void OnMapStart() {
