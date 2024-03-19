@@ -7,8 +7,6 @@ void UseCase_CheckPlayers() {
 }
 
 void UseCase_CheckPlayer(int client) {
-    PrintToServer("[DEBUG] UseCase_CheckPlayer: client %d", client);
-
     bool buttonsChanged = Client_AreButtonsChanged(client);
     bool anglesChanged = Client_AreAnglesChanged(client);
     bool positionChanged = Client_IsPositionChanged(client);
