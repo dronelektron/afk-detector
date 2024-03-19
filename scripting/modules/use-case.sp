@@ -22,7 +22,7 @@ void UseCase_IncrementInactivitySeconds(int client) {
     if (Client_IsActive(client)) {
         int seconds = Client_IncrementInactivitySeconds(client);
 
-        if (seconds == Variable_CheckInterval()) {
+        if (seconds == Variable_InactivityDelay()) {
             UseCase_MarkPlayerAsInactive(client);
         }
     }

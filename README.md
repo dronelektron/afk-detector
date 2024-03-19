@@ -21,7 +21,7 @@ Allows you to detect inactive players who do not:
 
 ### Console Variables
 
-* sm_afkdetector_check_interval - Player check interval (in seconds) [default: "5.0"]
+* sm_afkdetector_inactivity_delay - Delay (in seconds) before calling `AfkDetector_OnClientInactive` forward [default: "5.0"]
 
 ### API
 

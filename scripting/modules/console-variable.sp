@@ -1,9 +1,9 @@
-static ConVar g_checkInterval = null;
+static ConVar g_inactivityDelay;
 
 void Variable_Create() {
-    g_checkInterval = CreateConVar("sm_afkdetector_check_interval", "5.0", "Player check interval (in seconds)");
+    g_inactivityDelay = CreateConVar("sm_afkdetector_inactivity_delay", "5.0");
 }
 
-float Variable_CheckInterval() {
-    return g_checkInterval.FloatValue;
+float Variable_InactivityDelay() {
+    return g_inactivityDelay.FloatValue;
 }
