@@ -7,6 +7,8 @@ void UseCase_CheckPlayers() {
 }
 
 void UseCase_CheckPlayer(int client) {
+    PrintToServer("[DEBUG] UseCase_CheckPlayer: client %d", client);
+
     bool buttonsChanged = Client_AreButtonsChanged(client);
     bool anglesChanged = Client_AreAnglesChanged(client);
     bool positionChanged = Client_IsPositionChanged(client);
@@ -22,7 +24,7 @@ void UseCase_IncrementInactivitySeconds(int client) {
     if (Client_IsActive(client)) {
         int seconds = Client_IncrementInactivitySeconds(client);
 
-        if (seconds == Variable_InactivityDelay()) {
+        if (seconds >= Variable_InactivityDelay()) {
             UseCase_MarkPlayerAsInactive(client);
         }
     }
