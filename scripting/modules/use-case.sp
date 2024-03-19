@@ -1,47 +1,57 @@
-void UseCase_CheckPlayer(int client, int buttons, const int mouse[MOUSE_SIZE]) {
-    if (IsClientSourceTV(client) || IsFakeClient(client)) {
-        return;
+void UseCase_CheckPlayers() {
+    for (int client = 1; client <= MaxClients; client++) {
+        if (IsClientInGame(client)) {
+            UseCase_CheckPlayer(client);
+        }
+    }
+}
+
+void UseCase_CheckPlayer(int client) {
+    int actionsAmount = 0;
+
+    if (Client_ButtonsChanged(client)) {
+        actionsAmount++;
     }
 
-    bool hasPressedButtons = buttons != NO_BUTTONS;
-    bool hasMovedMouseX = mouse[MOUSE_X] != NO_MOUSE_DIRECTION;
-    bool hasMovedMouseY = mouse[MOUSE_Y] != NO_MOUSE_DIRECTION;
-    bool hasActivity = hasPressedButtons || hasMovedMouseX || hasMovedMouseY;
+    if (Client_AnglesChanged(client)) {
+        actionsAmount++;
+    }
 
-    if (hasActivity) {
+    if (Client_PositionChanged(client)) {
+        actionsAmount++;
+    }
+
+    if (actionsAmount > 1) {
         UseCase_MarkPlayerAsActive(client);
     } else {
-        float currentTime = GetGameTime();
-        float lastActivityTime = Client_GetLastActivityTime(client);
-        float checkInterval = Variable_CheckInterval();
-        bool noActivityAfterInterval = currentTime > lastActivityTime + checkInterval;
+        UseCase_IncrementInactivitySeconds(client);
+    }
+}
 
-        if (noActivityAfterInterval) {
+void UseCase_IncrementInactivitySeconds(int client) {
+    if (Client_IsActive(client)) {
+        int seconds = Client_IncrementInactivitySeconds(client);
+
+        if (seconds >= Variable_InactivityDelay()) {
             UseCase_MarkPlayerAsInactive(client);
         }
     }
 }
 
 void UseCase_MarkPlayerAsActive(int client) {
-    if (client == CLIENT_CONSOLE) {
-        return;
-    }
-
-    Client_UpdateLastActivityTime(client);
+    Client_ResetInactivitySeconds(client);
 
     if (Client_IsActive(client)) {
         return;
     }
 
     Client_MarkAsActive(client);
-    Api_OnClientActive(client);
+    Forward_OnClientActive(client);
 }
 
 void UseCase_MarkPlayerAsInactive(int client) {
-    if (Client_IsInactive(client)) {
-        return;
+    if (Client_IsActive(client)) {
+        Client_MarkAsInactive(client);
+        Forward_OnClientInactive(client);
     }
-
-    Client_MarkAsInactive(client);
-    Api_OnClientInactive(client);
 }
