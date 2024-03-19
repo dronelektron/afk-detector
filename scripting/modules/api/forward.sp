@@ -2,8 +2,8 @@ static GlobalForward g_onClientActive = null;
 static GlobalForward g_onClientInactive = null;
 
 void Forward_Create() {
-    g_onClientActive = new GlobalForward("OnClientActive", ET_Ignore, Param_Cell);
-    g_onClientInactive = new GlobalForward("OnClientInactive", ET_Ignore, Param_Cell);
+    g_onClientActive = new GlobalForward("AfkDetector_OnClientActive", ET_Ignore, Param_Cell);
+    g_onClientInactive = new GlobalForward("AfkDetector_OnClientInactive", ET_Ignore, Param_Cell);
 }
 
 void Forward_OnClientActive(int client) {

@@ -28,47 +28,17 @@ Allows you to detect inactive players who do not:
 Called when the player is no longer AFK
 
 ```
-forward void OnClientActive(int client);
+forward void AfkDetector_OnClientActive(int client);
 ```
 
 Called when the player is AFK
 
 ```
-forward void OnClientInactive(int client);
+forward void AfkDetector_OnClientInactive(int client);
 ```
 
 Checks if the client is active
 
 ```
 native bool AfkDetector_IsClientActive(int client);
-```
-
-### Usage example
-
-```
-#include <sourcemod>
-
-#include "afk-detector/api"
-
-public Plugin myinfo = {
-    name = "AFK notifier",
-    author = "Dron-elektron",
-    description = "Prints a message to the player that he is AFK or not",
-    version = "",
-    url = ""
-};
-
-public void OnAllPluginsLoaded() {
-    if (!LibraryExists(LIBRARY_AFK_DETECTOR)) {
-        SetFailState("Library '%s' is not found", LIBRARY_AFK_DETECTOR);
-    }
-}
-
-public void OnClientActive(int client) {
-    PrintToChat(client, "You are no longer AFK");
-}
-
-public void OnClientInactive(int client) {
-    PrintToChat(client, "You are AFK");
-}
 ```
