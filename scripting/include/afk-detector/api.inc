@@ -3,8 +3,6 @@
 #endif
 #define _afk_detector_api_included
 
-#define LIBRARY_AFK_DETECTOR "afk-detector"
-
 forward void AfkDetector_OnClientActive(int client);
 
 forward void AfkDetector_OnClientInactive(int client);
