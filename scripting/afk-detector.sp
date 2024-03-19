@@ -31,10 +31,6 @@ public void OnPluginStart() {
     AutoExecConfig(true, "afk-detector");
 }
 
-public void OnPluginEnd() {
-    Api_Destroy();
-}
-
 public void OnClientPostAdminCheck(int client) {
     Client_Reset(client);
 }

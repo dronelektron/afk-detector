@@ -6,11 +6,6 @@ void Api_Create() {
     g_onClientInactive = new GlobalForward("OnClientInactive", ET_Ignore, Param_Cell);
 }
 
-void Api_Destroy() {
-    delete g_onClientActive;
-    delete g_onClientInactive;
-}
-
 void Api_OnClientActive(int client) {
     Call_StartForward(g_onClientActive);
     Call_PushCell(client);
