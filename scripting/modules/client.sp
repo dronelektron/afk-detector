@@ -38,7 +38,7 @@ int Client_IncrementInactivitySeconds(int client) {
     return g_inactivitySeconds[client];
 }
 
-bool Client_AreButtonsChanged(int client) {
+bool Client_ButtonsChanged(int client) {
     int buttons = GetClientButtons(client);
     bool result = buttons != g_lastButtons[client];
 
@@ -47,7 +47,7 @@ bool Client_AreButtonsChanged(int client) {
     return result;
 }
 
-bool Client_AreAnglesChanged(int client) {
+bool Client_AnglesChanged(int client) {
     float angles[3];
 
     GetClientEyeAngles(client, angles);
@@ -59,7 +59,7 @@ bool Client_AreAnglesChanged(int client) {
     return distance > DISTANCE_THRESHOLD;
 }
 
-bool Client_IsPositionChanged(int client) {
+bool Client_PositionChanged(int client) {
     float position[3];
 
     GetClientEyePosition(client, position);

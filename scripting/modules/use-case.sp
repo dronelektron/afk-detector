@@ -9,15 +9,15 @@ void UseCase_CheckPlayers() {
 void UseCase_CheckPlayer(int client) {
     int actionsAmount = 0;
 
-    if (Client_AreButtonsChanged(client)) {
+    if (Client_ButtonsChanged(client)) {
         actionsAmount++;
     }
 
-    if (Client_AreAnglesChanged(client)) {
+    if (Client_AnglesChanged(client)) {
         actionsAmount++;
     }
 
-    if (Client_IsPositionChanged(client)) {
+    if (Client_PositionChanged(client)) {
         actionsAmount++;
     }
 
