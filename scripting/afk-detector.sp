@@ -1,13 +1,17 @@
 #include <sourcemod>
 
-#include "afkd/math"
-#include "afkd/use-case"
+#include "afk-detector/api"
+#include "afk-detector/math"
+#include "afk-detector/use-case"
 
-#include "modules/api.sp"
+#include "modules/api/forward.sp"
+#include "modules/api/native.sp"
 #include "modules/client.sp"
 #include "modules/console-command.sp"
 #include "modules/console-variable.sp"
 #include "modules/use-case.sp"
+
+#define AUTO_CREATE_YES true
 
 public Plugin myinfo = {
     name = "AFK detector",
@@ -18,17 +22,16 @@ public Plugin myinfo = {
 };
 
 public APLRes AskPluginLoad2(Handle plugin, bool late, char[] error, int errorMax) {
-    RegPluginLibrary("afk-detector");
-    CreateNative("AfkDetector_IsClientActive", Api_IsClientActive);
+    Native_Create();
 
     return APLRes_Success;
 }
 
 public void OnPluginStart() {
-    Api_Create();
+    Forward_Create();
     Command_AddListeners();
     Variable_Create();
-    AutoExecConfig(true, "afk-detector");
+    AutoExecConfig(AUTO_CREATE_YES, LIBRARY_AFK_DETECTOR);
 }
 
 public void OnClientPostAdminCheck(int client) {

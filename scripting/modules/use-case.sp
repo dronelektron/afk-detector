@@ -34,7 +34,7 @@ void UseCase_MarkPlayerAsActive(int client) {
     }
 
     Client_MarkAsActive(client);
-    Api_OnClientActive(client);
+    Forward_OnClientActive(client);
 }
 
 void UseCase_MarkPlayerAsInactive(int client) {
@@ -43,5 +43,5 @@ void UseCase_MarkPlayerAsInactive(int client) {
     }
 
     Client_MarkAsInactive(client);
-    Api_OnClientInactive(client);
+    Forward_OnClientInactive(client);
 }

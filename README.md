@@ -47,7 +47,7 @@ native bool AfkDetector_IsClientActive(int client);
 ```
 #include <sourcemod>
 
-#define AFK_DETECTOR "afk-detector"
+#include "afk-detector/api"
 
 public Plugin myinfo = {
     name = "AFK notifier",
@@ -58,8 +58,8 @@ public Plugin myinfo = {
 };
 
 public void OnAllPluginsLoaded() {
-    if (!LibraryExists(AFK_DETECTOR)) {
-        SetFailState("Library '%s' is not found", AFK_DETECTOR);
+    if (!LibraryExists(LIBRARY_AFK_DETECTOR)) {
+        SetFailState("Library '%s' is not found", LIBRARY_AFK_DETECTOR);
     }
 }
 
