@@ -3,7 +3,6 @@
 
 #include "afk-detector/api"
 #include "afk-detector/timer"
-#include "afk-detector/use-case"
 
 #include "modules/api/forward.sp"
 #include "modules/api/native.sp"
