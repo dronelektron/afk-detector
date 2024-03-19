@@ -1,7 +1,6 @@
 #include <sourcemod>
 
 #include "afk-detector/api"
-#include "afk-detector/math"
 #include "afk-detector/use-case"
 
 #include "modules/api/forward.sp"
@@ -38,7 +37,7 @@ public void OnClientPostAdminCheck(int client) {
     Client_Reset(client);
 }
 
-public void OnPlayerRunCmdPost(int client, int buttons, int impulse, const float velocity[VECTOR_SIZE], const float angles[VECTOR_SIZE], int weapon, int subType, int commandNumber, int tickCount, int seed, const int mouse[MOUSE_SIZE]) {
+public void OnPlayerRunCmdPost(int client, int buttons, int impulse, const float velocity[3], const float angles[3], int weapon, int subType, int commandNumber, int tickCount, int seed, const int mouse[2]) {
     UseCase_CheckPlayer(client, buttons, mouse);
 }
 

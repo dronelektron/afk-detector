@@ -1,4 +1,4 @@
-void UseCase_CheckPlayer(int client, int buttons, const int mouse[MOUSE_SIZE]) {
+void UseCase_CheckPlayer(int client, int buttons, const int mouse[2]) {
     if (IsClientSourceTV(client) || IsFakeClient(client)) {
         return;
     }
