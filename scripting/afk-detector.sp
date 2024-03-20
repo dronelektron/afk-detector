@@ -1,7 +1,6 @@
 #include <sourcemod>
 #include <sdktools>
 
-#include "afk-detector/api"
 #include "afk-detector/timer"
 
 #include "modules/api/forward.sp"
