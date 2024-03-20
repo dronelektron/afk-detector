@@ -36,14 +36,15 @@ bool Client_ButtonsChanged(int client) {
 
 bool Client_AnglesChanged(int client) {
     float angles[3];
-    float delta[3];
 
     GetClientEyeAngles(client, angles);
-    SubtractVectors(g_lastAngles[client], angles, delta);
+    
+    float pitchDelta = FloatAbs(g_lastAngles[client][PITCH] - angles[PITCH]);
+    float yawDelta = FloatAbs(g_lastAngles[client][YAW] - angles[YAW]);
 
     g_lastAngles[client] = angles;
 
-    return delta[PITCH] > 0.0 || delta[YAW] > 0.0;
+    return pitchDelta > 0.0 || yawDelta > 0.0;
 }
 
 bool Client_IsFirstPersonObserver(int client) {
