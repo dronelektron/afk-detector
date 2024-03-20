@@ -45,3 +45,9 @@ bool Client_AnglesChanged(int client) {
 
     return delta[PITCH] > 0.0 || delta[YAW] > 0.0;
 }
+
+bool Client_IsFirstPersonObserver(int client) {
+    int observerMode = GetEntProp(client, Prop_Send, "m_iObserverMode");
+
+    return observerMode == OBSERVER_MODE_FIRST_PERSON;
+}
