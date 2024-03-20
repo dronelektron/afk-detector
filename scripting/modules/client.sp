@@ -1,6 +1,3 @@
-static const bool SQUARED_YES = true;
-static const float DISTANCE_THRESHOLD = 1.0;
-
 static bool g_isActive[MAXPLAYERS + 1];
 static int g_inactivitySeconds[MAXPLAYERS + 1];
 static int g_lastButtons[MAXPLAYERS + 1];

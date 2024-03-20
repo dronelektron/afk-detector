@@ -1,7 +1,7 @@
 #include <sourcemod>
 #include <sdktools>
 
-#include "afk-detector/api"
+#include "afk-detector/client"
 #include "afk-detector/timer"
 
 #include "modules/api/forward.sp"
@@ -18,7 +18,7 @@ public Plugin myinfo = {
     name = "AFK detector",
     author = "Dron-elektron",
     description = "Allows you to detect inactive players",
-    version = "2.0.0",
+    version = "2.0.1",
     url = "https://github.com/dronelektron/afk-detector"
 };
 
