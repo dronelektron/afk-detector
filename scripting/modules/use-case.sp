@@ -6,7 +6,7 @@ void UseCase_CheckPlayers() {
     }
 }
 
-void UseCase_CheckPlayer(int client) {
+static void UseCase_CheckPlayer(int client) {
     int actionsAmount = 0;
 
     if (Client_ButtonsChanged(client)) {
@@ -28,7 +28,7 @@ void UseCase_CheckPlayer(int client) {
     }
 }
 
-void UseCase_IncrementInactivitySeconds(int client) {
+static void UseCase_IncrementInactivitySeconds(int client) {
     if (Client_IsActive(client)) {
         int seconds = Client_IncrementInactivitySeconds(client);
 
@@ -49,9 +49,7 @@ void UseCase_MarkPlayerAsActive(int client) {
     Forward_OnClientActive(client);
 }
 
-void UseCase_MarkPlayerAsInactive(int client) {
-    if (Client_IsActive(client)) {
-        Client_MarkAsInactive(client);
-        Forward_OnClientInactive(client);
-    }
+static void UseCase_MarkPlayerAsInactive(int client) {
+    Client_MarkAsInactive(client);
+    Forward_OnClientInactive(client);
 }
