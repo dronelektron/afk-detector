@@ -1,7 +1,7 @@
 static ConVar g_inactivityDelay;
 
 void Variable_Create() {
-    g_inactivityDelay = CreateConVar("sm_afkdetector_inactivity_delay", "5.0");
+    g_inactivityDelay = CreateConVar("sm_afkdetector_inactivity_delay", "5.0", "Delay (in seconds) before calling 'AfkDetector_OnClientInactive' forward");
     g_inactivityDelay.AddChangeHook(Variable_OnChange);
 }
 
