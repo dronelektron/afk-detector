@@ -40,7 +40,7 @@ public void OnMapStart() {
 }
 
 public void OnClientPostAdminCheck(int client) {
-    Client_Reset(client);
+    Client_MarkAsActive(client);
 }
 
 public void OnClientSayCommand_Post(int client, const char[] command, const char[] args) {
