@@ -1,15 +1,9 @@
 # AFK detector
 
-Allows you to detect inactive players. Player is considered active if he does the following:
-
-More than one action from this list:
+Allows you to detect inactive players. The active player must perform the following actions:
 
 * Press buttons
 * Look around
-* Move around
-
-One action from this list:
-
 * Write messages to chat
 * Use voice commands
 * Change team

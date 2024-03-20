@@ -3,5 +3,6 @@
 #endif
 #define _afk_detector_client_included
 
-#define SQUARED_YES true
-#define DISTANCE_THRESHOLD 1.0
+#define PITCH 0
+#define YAW 1
+#define OBSERVER_MODE_FIRST_PERSON 4

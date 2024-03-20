@@ -18,7 +18,7 @@ public Plugin myinfo = {
     name = "AFK detector",
     author = "Dron-elektron",
     description = "Allows you to detect inactive players",
-    version = "2.0.1",
+    version = "2.1.0",
     url = "https://github.com/dronelektron/afk-detector"
 };
 
@@ -40,7 +40,7 @@ public void OnMapStart() {
 }
 
 public void OnClientPostAdminCheck(int client) {
-    Client_Reset(client);
+    Client_MarkAsActive(client);
 }
 
 public void OnClientSayCommand_Post(int client, const char[] command, const char[] args) {
