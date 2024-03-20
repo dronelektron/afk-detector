@@ -30,20 +30,20 @@ One action from this list:
 
 ### API
 
-Called when the player is no longer AFK
+Called when the `client` is no longer AFK
 
-```
+```sourcepawn
 forward void AfkDetector_OnClientActive(int client);
 ```
 
-Called when the player is AFK
+Called when the `client` is AFK
 
-```
+```sourcepawn
 forward void AfkDetector_OnClientInactive(int client);
 ```
 
-Checks if the client is active
+Checks if the `client` is active
 
-```
+```sourcepawn
 native bool AfkDetector_IsClientActive(int client);
 ```
