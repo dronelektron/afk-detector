@@ -7,6 +7,10 @@ void UseCase_CheckPlayers() {
 }
 
 static void UseCase_CheckPlayer(int client) {
+    if (IsClientSourceTV(client)) {
+        return;
+    }
+
     bool firstPersonObserver = Client_IsFirstPersonObserver(client);
     bool buttonsChanged = Client_ButtonsChanged(client);
     bool anglesChanged = Client_AnglesChanged(client);
